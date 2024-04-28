@@ -4,36 +4,43 @@ var nombre = "";
 function initEvents() {
   console.log("Se han iniciado los eventos");
   var playButton = document.getElementById("playButton");
-  var nombreButton = document.getElementById("nombreButton");
+  var buscador = document.getElementById("nombre");
   playButton.disabled = true;
+
   addEvent(playButton, "click", play, false);
-  addEvent(nombreButton, "click", getNombre, false);
+  addEvent(buscador, "keyup", buscar, false);
 }
 
-function getNombre() {
+function buscar() {
   nombre = document.getElementById("nombre").value;
-  console.log("Se ha pulsado el botón de nombre");
 
-  var campoNombre = document.getElementById("nombre");
+  xmlHttp.open("POST", "./php/nombreVerificacion.php", true);
+  xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-  if (nombre == "") {
-    campoNombre.style.borderColor = "red";
-    alert("Introduce un nombre");
-  } else {
-    campoNombre.style.borderColor = "";
-    console.log("Nombre: " + nombre);
-    campoNombre.style.borderColor = "";
-    playButton.disabled = false;
-  }
+  xmlHttp.onreadystatechange = function () {
+    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+      var respuesta = xmlHttp.responseText;
+      console.log("Respuesta: " + respuesta);
+
+      if ((respuesta == 200)) {
+        document.getElementById("verificacion").innerText =
+          "Nombre identificado";
+        nombre = document.getElementById("nombre").value;
+        playButton.disabled = false; // Activar el botón de jugar
+      } else {
+        document.getElementById("verificacion").innerText = 'nombre desconocido';
+        playButton.disabled = true; // Desactivar el botón de jugar
+      }
+    }
+  };
+  xmlHttp.send("nombre=" + nombre);
 }
 
 function play() {
   console.log("Se ha iniciado el juego");
 
-  var xmlData =
-    "<data><nombre>" +
-    nombre +
-    "</nombre><apellido>"
+  var xmlData = "<data><nombre>" + nombre + "</nombre></data>";
+
   xmlHttp.open(
     "POST",
     "./php/gananciaAleatoria.php?timestamp=" + xmlHttp.timestamp,
