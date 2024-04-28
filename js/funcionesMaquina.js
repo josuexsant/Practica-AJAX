@@ -22,13 +22,14 @@ function buscar() {
       var respuesta = xmlHttp.responseText;
       console.log("Respuesta: " + respuesta);
 
-      if ((respuesta == 200)) {
+      if (respuesta == 200) {
         document.getElementById("verificacion").innerText =
           "Nombre identificado";
         nombre = document.getElementById("nombre").value;
         playButton.disabled = false; // Activar el botón de jugar
       } else {
-        document.getElementById("verificacion").innerText = 'nombre desconocido';
+        document.getElementById("verificacion").innerText =
+          "nombre desconocido";
         playButton.disabled = true; // Desactivar el botón de jugar
       }
     }
