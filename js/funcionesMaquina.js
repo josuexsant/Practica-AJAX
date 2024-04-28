@@ -1,22 +1,5 @@
 var xmlHttp = crearXMLHttpRequest();
 var nombre = "";
-var apellido = "";
-
-function preseleccionarJugador1() {
-  // Crear árbol DOM pre-configurado para el jugador 1
-  nombre = "Jugador";
-  apellido = "Uno";
-  document.getElementById("nombre").value = nombre;
-  document.getElementById("apellido").value = apellido;
-}
-
-function preseleccionarJugador2() {
-  // Crear árbol DOM pre-configurado para el jugador 2
-  nombre = "Jugador";
-  apellido = "Dos";
-  document.getElementById("nombre").value = nombre;
-  document.getElementById("apellido").value = apellido;
-}
 
 function initEvents() {
   console.log("Se han iniciado los eventos");
@@ -29,28 +12,17 @@ function initEvents() {
 
 function getNombre() {
   nombre = document.getElementById("nombre").value;
-  apellido = document.getElementById("apellido").value;
   console.log("Se ha pulsado el botón de nombre");
 
   var campoNombre = document.getElementById("nombre");
-  var campoApellido = document.getElementById("apellido");
 
-  if (nombre == "" || apellido == "") {
-    if (nombre == "") {
-      campoNombre.style.borderColor = "red";
-    } else {
-      campoNombre.style.borderColor = "";
-    }
-    if (apellido == "") {
-      campoApellido.style.borderColor = "red";
-    } else {
-      campoApellido.style.borderColor = "";
-    }
-    alert("Introduce un nombre y un apellido");
+  if (nombre == "") {
+    campoNombre.style.borderColor = "red";
+    alert("Introduce un nombre");
   } else {
+    campoNombre.style.borderColor = "";
     console.log("Nombre: " + nombre);
     campoNombre.style.borderColor = "";
-    campoApellido.style.borderColor = "";
     playButton.disabled = false;
   }
 }
@@ -61,9 +33,7 @@ function play() {
   var xmlData =
     "<data><nombre>" +
     nombre +
-    "</nombre><apellido>" +
-    apellido +
-    "</apellido></data>";
+    "</nombre><apellido>"
   xmlHttp.open(
     "POST",
     "./php/gananciaAleatoria.php?timestamp=" + xmlHttp.timestamp,
