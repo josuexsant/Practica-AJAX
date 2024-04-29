@@ -18,7 +18,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   border-radius: 1rem;
   background-color: rgb(250, 240, 223);
 }
@@ -29,7 +28,7 @@ h1 {
 
 .btn {
   padding: 1rem;
-  margin: .5rem;
+  margin: 0.5rem;
   width: 20rem;
   background-color: rgb(253, 63, 155);
   color: white;
@@ -42,12 +41,13 @@ h1 {
   background-color: rgb(207, 68, 114);
 }
 
-.btn:disabled{
+.btn:disabled {
   background-color: rgb(105, 52, 70);
 }
 
 #maxValue {
   margin: 1rem;
+  width: 20rem;
   font-size: large;
   visibility: hidden;
 }
@@ -70,11 +70,45 @@ h1 {
   margin: 1rem;
   font-size: large;
   visibility: hidden;
-} 
+}
 
-#nombre, #apellido {
+#nombre,
+#apellido {
   margin: 1rem;
   font-size: large;
-  border-radius: .5rem;
-  padding: .5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }
+
+#historial {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1em;
+  font-family: sans-serif;
+  width: 33rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  text-align: left;
+}
+
+#historial thead tr {
+  background-color: rgb(253, 63, 155);
+  color: #ffffff;
+}
+
+#historial th,
+#historial td {
+  padding: 12px 15px;
+}
+
+#historial tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+#historial tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+#historial tbody tr:last-of-type {
+  border-bottom: 2px solid #b7b7b7;
+}
+

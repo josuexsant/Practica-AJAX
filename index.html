@@ -9,20 +9,30 @@
     <link rel="StyleSheet" href="css/styles.css" type="text/css" />
   </head>
   <body>
-<div class="container">
-        <h1>Tragamonedas</h1>
+    <div class="container">
+      <h1>Tragamonedas</h1>
 
-        <img id="img-tragamonedas" src="img/maquina-tragamonedas.png" />
+      <img id="img-tragamonedas" src="img/maquina-tragamonedas.png" />
 
-        <!--Pedimos el nombre-->
-        <label for="nombre">Ingresa tu nombre:</label>
-        <input type="text" id="nombre" />
-        <p id="verificacion"></p>
-        <img id="cargando" src="img/cargando.gif" />
-        <button class="btn" id="playButton">Jugar</button>
-        <p id="maxValue"></p>
+      <!--Pedimos el nombre-->
+      <label for="nombre">Ingresa tu nombre:</label>
+      <input type="text" id="nombre" />
+      <p id="verificacion"></p>
+      <img id="cargando" src="img/cargando.gif" />
+      <button class="btn" id="playButton">Jugar</button>
+      <p id="maxValue"></p>
 
-        <!-- Botones de preselección de jugadores -->
+      <div class="tablita">
+        <table id="historial">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Ganancia</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
 
     <div class="CAJITA"></div>
