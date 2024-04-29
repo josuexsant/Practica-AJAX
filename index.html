@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tragamonedas</title>
+    <script src="js/funcionesAjax.js" language="JavaScript"></script>
+    <script src="js/funcionesMaquina.js" language="JavaScript"></script>
+    <link rel="StyleSheet" href="css/styles.css" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tragamonedas</h1>
+
+      <img id="img-tragamonedas" src="img/maquina-tragamonedas.png" />
+
+      <!--Pedimos el nombre-->
+      <label for="nombre">Ingresa tu nombre:</label>
+      <input type="text" id="nombre" />
+      <p id="verificacion"></p>
+      <img id="cargando" src="img/cargando.gif" />
+      <button class="btn" id="playButton">Jugar</button>
+      <p id="maxValue"></p>
+
+      <div class="tablita">
+        <table id="historial">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Ganancia</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="CAJITA"></div>
+  </body>
+</html>
